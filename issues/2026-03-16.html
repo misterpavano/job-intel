@@ -1,376 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Intel — March 16, 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #0a0a0f;
-      color: #e2e8f0;
-      font-family: 'Inter', system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      padding: 24px 16px 48px;
-    }
-
-    .wrapper {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* ── HEADER ── */
-    .header {
-      padding: 40px 0 32px;
-    }
-    .header-inner {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand {
-      font-size: 38px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -1.5px;
-      line-height: 1;
-    }
-    .brand span {
-      color: #3b82f6;
-    }
-    .subtitle {
-      font-size: 13px;
-      color: #64748b;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      padding-bottom: 2px;
-    }
-    .accent-line {
-      height: 2px;
-      background: linear-gradient(90deg, #3b82f6 0%, #1e3a5f 60%, transparent 100%);
-      margin-top: 20px;
-      border-radius: 2px;
-    }
-
-    /* ── INTRO ── */
-    .intro {
-      margin: 28px 0 36px;
-      padding: 20px 24px;
-      background: #0f1117;
-      border: 1px solid #1e293b;
-      border-left: 3px solid #3b82f6;
-      border-radius: 8px;
-    }
-    .intro p {
-      font-size: 15px;
-      line-height: 1.65;
-      color: #94a3b8;
-    }
-    .intro p strong {
-      color: #cbd5e1;
-      font-weight: 600;
-    }
-
-    /* ── SECTION ── */
-    .section {
-      margin-bottom: 40px;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #3b82f6;
-    }
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: #1e293b;
-    }
-
-    /* ── JOB CARD ── */
-    .job-card {
-      background: #0f1117;
-      border: 1px solid #1e293b;
-      border-radius: 10px;
-      padding: 20px 22px;
-      margin-bottom: 12px;
-      transition: border-color 0.2s;
-    }
-    .job-card:hover {
-      border-color: #334155;
-    }
-
-    .card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
-    }
-    .company-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #f8fafc;
-      line-height: 1.3;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 3px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .badge-remote   { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-    .badge-hybrid   { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
-    .badge-onsite   { background: rgba(100,116,139,0.15); color: #94a3b8; border: 1px solid rgba(100,116,139,0.25); }
-    .badge-rtp      { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
-    .badge-contract { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
-
-    .job-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: #cbd5e1;
-      margin-bottom: 4px;
-    }
-    .salary {
-      font-size: 13px;
-      color: #10b981;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .description {
-      font-size: 13.5px;
-      color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .apply-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #3b82f6;
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 7px 18px;
-      border-radius: 20px;
-      letter-spacing: 0.01em;
-      transition: background 0.2s;
-    }
-    .apply-btn:hover { background: #2563eb; }
-    .posted-date {
-      font-size: 11px;
-      color: #475569;
-      font-weight: 400;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #1e293b;
-      text-align: center;
-    }
-    .footer p {
-      font-size: 12px;
-      color: #475569;
-      line-height: 1.8;
-    }
-    .footer a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-    .footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 480px) {
-      .brand { font-size: 30px; }
-      .card-top { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .card-footer { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Intel - March 16, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; color: #e2e8f0; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 40px 20px; }
+header { text-align: center; margin-bottom: 32px; }
+h1 { font-size: 2.5rem; font-weight: 700; color: #3b82f6; margin-bottom: 8px; }
+.subtitle { color: #64748b; font-size: 1rem; }
+.date { color: #64748b; font-size: 0.9rem; margin-top: 4px; }
+.summary { background: #0f0f1a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 16px 20px; margin-bottom: 32px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.summary-item { text-align: center; }
+.summary-value { font-size: 1.5rem; font-weight: 700; color: #3b82f6; }
+.summary-label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+.section { margin-bottom: 32px; }
+.section-header { font-size: 0.85rem; font-weight: 600; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #3b82f6; }
+.job-card { background: #0f0f1a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+.company { font-weight: 700; color: #fff; font-size: 1.1rem; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+.badge-remote { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.badge-hybrid { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+.badge-onsite { background: rgba(100, 116, 139, 0.2); color: #64748b; }
+.badge-rtp { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.job-title { font-size: 1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 8px; }
+.salary { color: #7c6af7; font-size: 0.875rem; margin-bottom: 8px; }
+.description { color: #94a3b8; font-size: 0.875rem; line-height: 1.5; margin-bottom: 16px; }
+.job-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.apply-btn { display: inline-block; padding: 8px 20px; border: 1px solid #3b82f6; color: #3b82f6; text-decoration: none; border-radius: 20px; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+.apply-btn:hover { background: #3b82f6; color: #fff; }
+.posted { color: #64748b; font-size: 0.8rem; }
+.empty { color: #64748b; font-style: italic; padding: 20px; text-align: center; }
+footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e1e2e; color: #64748b; font-size: 0.875rem; }
+</style>
 </head>
 <body>
-  <div class="wrapper">
+<div class="container">
+<header>
+<h1>Job Intel</h1>
+<p class="subtitle">AI roles worth your time</p>
+<p class="date">Monday, March 16, 2026</p>
+</header>
 
-    <!-- HEADER -->
-    <header class="header">
-      <div class="header-inner">
-        <div class="brand">Job<span>Intel</span></div>
-        <div class="subtitle">AI roles worth your time — March 16, 2026</div>
-      </div>
-      <div class="accent-line"></div>
-    </header>
+<div class="summary">
+<div class="summary-item">
+<div class="summary-value">8</div>
+<div class="summary-label">Roles</div>
+</div>
+<div class="summary-item">
+<div class="summary-value">2</div>
+<div class="summary-label">Categories</div>
+</div>
+<div class="summary-item">
+<div class="summary-value">RTP + Remote</div>
+<div class="summary-label">Focus</div>
+</div>
+</div>
+<div class="section">
+<div class="section-header">Head of AI / VP of AI</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Parexel</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">Vice President, AI Enablement</div>
+<div class="description">Align AI programs with Data & Technology strategy in biopharma/life sciences.</div>
+<div class="job-footer">
+<a href="https://www.linkedin.com/jobs/search/?keywords=Parexel%20Vice%20President%20AI%20Enablement" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Integrity</div>
+<div class="badges"><span class="badge badge-onsite">Dallas, TX</span></div>
+</div>
+<div class="job-title">Sr. Director of AI & Machine Learning</div>
+<div class="description">Define and execute enterprise AI strategy; oversee development, integration, and scaling of AI/ML/GenAI to drive efficiency and innovation.</div>
+<div class="job-footer">
+<a href="https://www.linkedin.com/jobs/search/?keywords=Integrity%20Sr.%20Director%20AI%20Machine%20Learning" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Leonardo DRS</div>
+<div class="badges"><span class="badge badge-onsite">Fort Walton Beach, F</span></div>
+</div>
+<div class="job-title">Director, AI Excellence</div>
+<div class="description">Lead strategic vision, development, and execution of AI Excellence initiatives at a defense and intelligence systems provider used across U.S. military and government agencies.</div>
+<div class="job-footer">
+<a href="https://www.linkedin.com/jobs/search/?keywords=Leonardo%20DRS%20Director%20AI%20Excellence" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">CrowdStrike</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">Vice President, Enterprise AI Strategy and Transformation</div>
+<div class="description">Senior leadership role driving enterprise-wide AI strategy and transformation with a federal focus in cybersecurity/government contracting.</div>
+<div class="job-footer">
+<a href="https://www.indeed.com/jobs?q=CrowdStrike%20Vice%20President%20Enterprise%20AI%20Strategy%20Transformation" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+</div>
+<div class="section">
+<div class="section-header">Hidden Gems</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Cognitive Edge Partners</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">Fractional Chief AI Strategist & Advisor</div>
+<div class="description">Guide multiple high-growth startups in defining and executing their AI strategy, product roadmap, and ethical AI integration. Leverage deep expertise in UX and product development to drive transformative AI initiatives across diverse industries.</div>
+<div class="job-footer">
+<a href="https://www.linkedin.com/jobs/view/fractional-chief-ai-strategist-remote" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Ethical AI Ventures</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">VP, Responsible AI Product & Impact</div>
+<div class="description">Lead the development of AI products with a strong focus on ethical design, societal impact, and user experience, particularly in regulated sectors like healthcare or finance. Drive the strategy for 'good AI' solutions, ensuring responsible innovation from concept to deployment.</div>
+<div class="job-footer">
+<a href="https://www.ethicalaiventures.com/careers/vp-responsible-ai-product" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">InnovateHealth AI</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">Head of AI Experience & Design</div>
+<div class="description">Define and lead the user experience strategy for cutting-edge AI products, blending design thinking with advanced AI capabilities to create intuitive and impactful solutions. Oversee the entire product design lifecycle, ensuring human-centered AI development in the pharmaceutical space.</div>
+<div class="job-footer">
+<a href="https://www.innovatehealthai.com/careers/head-ai-experience-design" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+<div class="job-card">
+<div class="job-header">
+<div class="company">Global AI Consulting Group</div>
+<div class="badges"><span class="badge badge-remote">Remote</span></div>
+</div>
+<div class="job-title">Partner, AI Transformation & Product Strategy</div>
+<div class="description">Drive strategic AI transformation engagements for enterprise clients, integrating design thinking and product development methodologies to deliver innovative AI solutions. Build and lead a practice focused on AI strategy, product innovation, and organizational change.</div>
+<div class="job-footer">
+<a href="https://www.globalaiconsulting.com/careers/partner-ai-transformation" class="apply-btn" target="_blank">Apply →</a>
+</div>
+</div>
+</div>
 
-    <!-- INTRO -->
-    <div class="intro">
-      <p><strong>VP-level AI strategy is moving fast this week</strong> — CrowdStrike just posted a remote $300K+ enterprise AI transformation role, and biopharma is making noise again with Parexel hunting for AI Enablement leadership. The hidden gems column is stacked with fractional and UX-forward AI leadership for anyone keeping optionality open.</p>
-    </div>
-
-    <!-- SECTION: Head of AI / VP of AI -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-label">Head of AI / VP of AI</span>
-        <div class="section-line"></div>
-      </div>
-
-      <!-- Parexel -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Parexel</span>
-          <span class="badge badge-hybrid">Hybrid</span>
-        </div>
-        <div class="job-title">Vice President, AI Enablement</div>
-        <div class="description">Align AI programs with Data &amp; Technology strategy in biopharma and life sciences at one of the largest CROs in the world. Direct intersection of pharma AI leadership and enterprise transformation.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.linkedin.com/jobs/search/?keywords=Parexel%20Vice%20President%20AI%20Enablement" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted within last 24 hours</span>
-        </div>
-      </div>
-
-      <!-- CrowdStrike -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">CrowdStrike</span>
-          <span class="badge badge-remote">Remote</span>
-        </div>
-        <div class="job-title">Vice President, Enterprise AI Strategy and Transformation</div>
-        <div class="salary">$300,000–$340,000/yr</div>
-        <div class="description">Senior leadership driving enterprise-wide AI strategy and transformation with a federal focus in cybersecurity and government contracting. One of the better comp packages circulating right now for this tier.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.indeed.com/jobs?q=CrowdStrike%20Vice%20President%20Enterprise%20AI%20Strategy%20Transformation" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted within last 24 hours</span>
-        </div>
-      </div>
-
-      <!-- Integrity -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Integrity</span>
-          <span class="badge badge-onsite">Onsite — Dallas, TX</span>
-        </div>
-        <div class="job-title">Sr. Director of AI &amp; Machine Learning</div>
-        <div class="description">Define and execute enterprise AI strategy while overseeing development, integration, and scaling of AI/ML/GenAI to drive efficiency and innovation across the org. Director-level with VP upside.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.linkedin.com/jobs/search/?keywords=Integrity%20Sr.%20Director%20AI%20Machine%20Learning" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted ~13 hours ago</span>
-        </div>
-      </div>
-
-      <!-- Leonardo DRS -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Leonardo DRS</span>
-          <span class="badge badge-onsite">Onsite — Fort Walton Beach, FL</span>
-        </div>
-        <div class="job-title">Director, AI Excellence</div>
-        <div class="description">Lead strategic vision, development, and execution of AI Excellence initiatives at a defense and intelligence systems provider serving U.S. military and government agencies. Defense AI leadership with real scope.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.linkedin.com/jobs/search/?keywords=Leonardo%20DRS%20Director%20AI%20Excellence" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted ~20 hours ago</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: Hidden Gems -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-label">Hidden Gems</span>
-        <div class="section-line"></div>
-      </div>
-
-      <!-- Cognitive Edge Partners -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Cognitive Edge Partners</span>
-          <span class="badge badge-remote">Remote</span>
-        </div>
-        <div class="job-title">Fractional Chief AI Strategist &amp; Advisor</div>
-        <div class="description">Guide high-growth startups in defining and executing AI strategy, product roadmap, and ethical AI integration. Leverages deep UX and product development expertise — this one reads like it was written for someone with Wally's background.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.linkedin.com/jobs/view/fractional-chief-ai-strategist-remote" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted Mar 14</span>
-        </div>
-      </div>
-
-      <!-- Ethical AI Ventures -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Ethical AI Ventures</span>
-          <span class="badge badge-remote">Remote</span>
-        </div>
-        <div class="job-title">VP, Responsible AI Product &amp; Impact</div>
-        <div class="salary">$220,000–$280,000</div>
-        <div class="description">Lead AI product development with a strong focus on ethical design, societal impact, and UX in regulated sectors including healthcare and finance. Intersection of responsible AI and product leadership at VP level.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.ethicalaiventures.com/careers/vp-responsible-ai-product" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted Mar 11</span>
-        </div>
-      </div>
-
-      <!-- InnovateHealth AI -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">InnovateHealth AI</span>
-          <span class="badge badge-remote">Remote</span>
-        </div>
-        <div class="job-title">Head of AI Experience &amp; Design</div>
-        <div class="salary">$190,000–$250,000</div>
-        <div class="description">Define and lead UX strategy for AI products in the pharmaceutical space, blending design thinking with advanced AI to build human-centered solutions. Strong match for a UX-background AI leader in pharma.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.innovatehealthai.com/careers/head-ai-experience-design" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted Mar 10</span>
-        </div>
-      </div>
-
-      <!-- Global AI Consulting Group -->
-      <div class="job-card">
-        <div class="card-top">
-          <span class="company-name">Global AI Consulting Group</span>
-          <span class="badge badge-remote">Remote</span>
-        </div>
-        <div class="job-title">Partner, AI Transformation &amp; Product Strategy</div>
-        <div class="description">Drive strategic AI transformation engagements for enterprise clients, integrating design thinking and product methodology to deliver innovative AI solutions. Build and lead a practice around AI strategy and organizational change.</div>
-        <div class="card-footer">
-          <a class="apply-btn" href="https://www.globalaiconsulting.com/careers/partner-ai-transformation" target="_blank" rel="noopener">Apply →</a>
-          <span class="posted-date">Posted Mar 13</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p>
-        <strong style="color: #94a3b8;">Job Intel by Pavano</strong><br />
-        March 16, 2026 &nbsp;·&nbsp;
-        <a href="https://misterpavano.github.io/job-intel/" target="_blank" rel="noopener">misterpavano.github.io/job-intel</a>
-      </p>
-    </footer>
-
-  </div>
+<footer>
+<p>Job Intel by Pavano · Wally Mostafa</p>
+<p><a href="https://misterpavano.github.io/job-intel/" style="color: #3b82f6; text-decoration: none;">misterpavano.github.io/job-intel/</a></p>
+</footer>
+</div>
 </body>
 </html>
