@@ -1,600 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Intel — March 19, 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Intel — March 19, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    background: #08080f;
-    color: #e2e8f0;
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+    body {
+      background-color: #0a0a0f;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  a { color: inherit; text-decoration: none; }
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
 
-  .wrapper {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 32px 20px 64px;
-  }
+    /* ── HEADER ── */
+    .header {
+      margin-bottom: 40px;
+    }
 
-  /* ── HEADER ── */
-  .header {
-    text-align: center;
-    padding: 48px 0 36px;
-    border-bottom: 1px solid #1e1e2e;
-    margin-bottom: 32px;
-  }
-  .header-brand {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #64748b;
-    margin-bottom: 8px;
-  }
-  .header-title {
-    font-size: 2.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #00d4aa;
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-  .header-subtitle {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    margin-bottom: 6px;
-  }
-  .header-date {
-    font-size: 0.8rem;
-    color: #64748b;
-  }
+    .header-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
 
-  /* ── SUMMARY BAR ── */
-  .summary-bar {
-    background: #0f0f1a;
-    border: 1px solid #1e1e2e;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 18px 24px;
-    margin-bottom: 40px;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .summary-item {
-    text-align: center;
-    flex: 1;
-    min-width: 100px;
-  }
-  .summary-item + .summary-item {
-    border-left: 1px solid #1e1e2e;
-  }
-  .summary-value {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #00d4aa;
-    line-height: 1;
-  }
-  .summary-label {
-    font-size: 0.75rem;
-    color: #64748b;
-    margin-top: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+    .header-subtitle {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
 
-  /* ── SECTION HEADING ── */
-  .section {
-    margin-bottom: 40px;
-  }
-  .section-heading {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #00d4aa;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #00d4aa;
-    display: inline-block;
-  }
+    .header-rule {
+      margin-top: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6 0%, transparent 100%);
+      border: none;
+    }
 
-  /* ── EMPTY STATE ── */
-  .empty-state {
-    background: #0f0f1a;
-    border: 1px dashed #1e1e2e;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    color: #475569;
-    font-size: 0.875rem;
-  }
+    /* ── INTRO ── */
+    .intro {
+      margin-bottom: 44px;
+      padding: 20px 24px;
+      background: rgba(59, 130, 246, 0.06);
+      border-left: 3px solid #3b82f6;
+      border-radius: 0 8px 8px 0;
+    }
 
-  /* ── JOB CARDS ── */
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .card {
-    background: #0f0f1a;
-    border: 1px solid #1e1e2e;
-    border-radius: 12px;
-    padding: 20px 22px;
-    transition: border-color 0.15s;
-    position: relative;
-  }
-  .card:hover {
-    border-color: #00d4aa44;
-  }
+    .intro p {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  .card-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #f1f5f9;
-    line-height: 1.3;
-  }
-  .card-company {
-    font-size: 0.875rem;
-    color: #00d4aa;
-    margin-top: 2px;
-  }
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 48px;
+    }
 
-  .card-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 10px 0;
-    align-items: center;
-  }
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 3px 9px;
-    border-radius: 6px;
-    line-height: 1.4;
-    white-space: nowrap;
-  }
-  .badge-location {
-    background: #1e293b;
-    color: #94a3b8;
-    border: 1px solid #334155;
-  }
-  .badge-type {
-    background: #0f2027;
-    color: #7dd3fc;
-    border: 1px solid #1e3a4a;
-  }
-  .badge-salary {
-    background: #1a1030;
-    color: #a78bfa;
-    border: 1px solid #2e1f5e;
-  }
-  .badge-seen {
-    background: #1a1a1a;
-    color: #64748b;
-    border: 1px solid #2d2d2d;
-  }
+    .section-header {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  .card-description {
-    font-size: 0.875rem;
-    color: #64748b;
-    line-height: 1.55;
-    margin: 10px 0 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(59, 130, 246, 0.2);
+    }
 
-  .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .card-posted {
-    font-size: 0.75rem;
-    color: #475569;
-  }
-  .btn-apply {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 6px;
-    border: 1px solid #00d4aa;
-    color: #00d4aa;
-    background: transparent;
-    transition: background 0.15s, color 0.15s;
-    letter-spacing: 0.02em;
-  }
-  .btn-apply:hover {
-    background: #00d4aa;
-    color: #08080f;
-  }
+    /* ── CARD ── */
+    .card {
+      background: #111118;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
 
-  /* ── FOOTER ── */
-  .footer {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid #1e1e2e;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #475569;
-    line-height: 1.8;
-  }
-  .footer span {
-    color: #00d4aa;
-    font-weight: 500;
-  }
+    .card:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+    }
 
-  @media (max-width: 540px) {
-    .header-title { font-size: 2rem; }
-    .summary-bar { flex-direction: column; }
-    .summary-item + .summary-item { border-left: none; border-top: 1px solid #1e1e2e; padding-top: 14px; }
-    .card-top { flex-direction: column; }
-    .card-footer { flex-direction: column-reverse; align-items: flex-start; }
-  }
-</style>
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .card-company {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-remote   { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-hybrid   { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-onsite   { background: rgba(148, 163, 184, 0.1); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); }
+    .badge-rtp      { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-contract { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+    }
+
+    .card-salary {
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .card-description {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+      background: #3b82f6;
+      padding: 7px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+
+    .apply-btn:hover {
+      background: #2563eb;
+    }
+
+    .card-date {
+      font-size: 11px;
+      color: #334155;
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .footer-meta {
+      font-size: 12px;
+      color: #1e293b;
+    }
+
+    .footer a {
+      color: #475569;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #3b82f6;
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 32px; }
+      .card-top { flex-direction: column; gap: 8px; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 <div class="wrapper">
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-brand">Daily Briefing</div>
-    <div class="header-title">JOB INTEL</div>
-    <div class="header-subtitle">AI opportunities for Wally Mostafa</div>
-    <div class="header-date">Thursday, March 19, 2026</div>
+    <div class="header-title">Job Intel</div>
+    <div class="header-subtitle">AI roles worth your time &mdash; Thursday, March 19, 2026</div>
+    <hr class="header-rule" />
   </div>
 
-  <!-- SUMMARY BAR -->
-  <div class="summary-bar">
-    <div class="summary-item">
-      <div class="summary-value">14</div>
-      <div class="summary-label">Total Listings</div>
-    </div>
-    <div class="summary-item">
-      <div class="summary-value">7</div>
-      <div class="summary-label">Categories</div>
-    </div>
-    <div class="summary-item">
-      <div class="summary-value">🌐</div>
-      <div class="summary-label">Raleigh NC + Remote</div>
-    </div>
+  <!-- INTRO -->
+  <div class="intro">
+    <p>AI strategy and senior product leadership hiring is moving fast this week, with remote-first roles across consulting, enterprise architecture, and AI PM tracks all active simultaneously. If you've been waiting for the market to heat up around fractional and high-leverage operator roles — it's heating.</p>
   </div>
 
-  <!-- SECTION: AI CONSULTING -->
+  <!-- SECTION: AI Strategy & Consulting -->
   <div class="section">
-    <div class="section-heading">AI Consulting</div>
-    <div class="card-grid">
+    <div class="section-header">AI Strategy &amp; Consulting</div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">AI Strategy Consultant</div>
-            <div class="card-company">Virtual Vocations</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote</span>
-          <span class="badge badge-type">Remote</span>
-        </div>
-        <div class="card-description">Serve as a trusted advisor to executive stakeholders, aligning AI capabilities with critical business priorities. Lead the commercial strategy for high-stakes pursuits by crafting insight-led narratives.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 12, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcvJ0dcPGnm50wXu1ptFhaUOMhn-9xt8inrC9bANTIKlubdTniKvoQuYqVQ9UQgKQz8B5is5p4IjoD89yhyslFxwYyFcoyEkyCi5w-BkMXKNwFImtLqkPVdR-TE49aAvAd7QQa1IjYU9z_snn-7WLW2Vlw9oT8Isq5XW-9etyHtxqDCJrr" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Virtual Vocations — AI Strategy Consultant -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Virtual Vocations</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">AI Strategy Lead</div>
-            <div class="card-company">Virtual Vocations</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote</span>
-          <span class="badge badge-type">Remote</span>
-        </div>
-        <div class="card-description">Conduct audits of current AI usage and operational workflows to identify improvement opportunities. Design and implement AI-driven automation for recurring processes and integrate AI tools across the organization.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 17, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpAQlzjKgJrh-HRPIfDtgXrG-oJcCa1Gtk_P5UpOvafVmthFjA3J9rKomnXCXQ6cAxJoRn40OYyha5aa4lth_ytLFgwp-IjIkg0IyJPWT7u56CH40Z3C2-3sZvUuXrKwvP0RvLN9BFAXZvne_RXHBOxADc6zDXiK2_53GmYPu" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">AI Strategy Consultant</div>
+      <div class="card-description">Serve as a trusted advisor to executive stakeholders, aligning AI capabilities with critical business priorities. Lead the commercial strategy for high-stakes pursuits by crafting insight-led narratives.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcvJ0dcPGnm50wXu1ptFhaUOMhn-9xt8inrC9bANTIKlubdTniKvoQuYqVQ9UQgKQz8B5is5p4IjoD89yhyslFxwYyFcoyEkyCi5w-BkMXKNwFImtLqkPVdR-TE49aAvAd7QQa1IjYU9z_snn-7WLW2Vlw9oT8Isq5XW-9etyHtxqDCJrr" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 12</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Hybrid: AI Strategy Consultant</div>
-            <div class="card-company">Script2IT</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-type">Hybrid</span>
-        </div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 12, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzJ4v7uGT3NwStNsB5KmIFVSdYsZO_EJ_B29oVP3CRiYjmiKgdsZh24WaWvu2RFLiTURRbADQB9Rl1O5jsqazhiR8uC7IfzNJ5EzRFwUYlh338fNAkMIJmXZvxqkZoNGuUkDruQR_TjR98fwpYLyOlIk4F4NnD997xFjSqRjD9HDHi3Qsh50TOmBFyXHn9q-cSgYZKsQ==" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Virtual Vocations — AI Strategy Lead -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Virtual Vocations</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
+      <div class="card-title">AI Strategy Lead</div>
+      <div class="card-description">Conduct audits of current AI usage and operational workflows to identify improvement opportunities. Design and implement AI-driven automation for recurring processes and integrate AI tools across the organization.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpAQlzjKgJrh-HRPIfDtgXrG-oJcCa1Gtk_P5UpOvafVmthFjA3J9rKomnXCXQ6cAxJoRn40OYyha5aa4lth_ytLFgwp-IjIkg0IyJPWT7u56CH40Z3C2-3sZvUuXrKwvP0RvLN9BFAXZvne_RXHBOxADc6zDXiK2_53GmYPu" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 17</span>
+      </div>
+    </div>
 
+    <!-- Card: Script2IT — Hybrid AI Strategy Consultant -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Script2IT</div>
+        <span class="badge badge-hybrid">Hybrid</span>
+      </div>
+      <div class="card-title">AI Strategy Consultant</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzJ4v7uGT3NwStNsB5KmIFVSdYsZO_EJ_B29oVP3CRiYjmiKgdsZh24WaWvu2RFLiTURRbADQB9Rl1O5jsqazhiR8uC7IfzNJ5EzRFwUYlh338fNAkMIJmXZvxqkZoNGuUkDruQR_TjR98fwpYLyOlIk4F4NnD997xFjSqRjD9HDHi3Qsh50TOmBFyXHn9q-cSgYZKsQ==" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 12</span>
+      </div>
     </div>
   </div>
 
-  <!-- SECTION: AI LEADERSHIP -->
+  <!-- SECTION: Enterprise AI / Solutions Engineer -->
   <div class="section">
-    <div class="section-heading">AI Leadership</div>
-    <div class="empty-state">No new listings today</div>
-  </div>
+    <div class="section-header">Enterprise AI / Solutions Engineer</div>
 
-  <!-- SECTION: ENTERPRISE AI -->
-  <div class="section">
-    <div class="section-heading">Enterprise AI</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Azure AI Solutions Architect — 100% Remote — 6+ Months Contract</div>
-            <div class="card-company">Dexperts Inc.</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote</span>
-          <span class="badge badge-type">Contract</span>
-        </div>
-        <div class="card-description">Lead the design and implementation of enterprise-scale AI platforms using Microsoft Azure. Responsible for defining AI architecture, enabling production-grade Generative AI systems, and ensuring secure, scalable deployment across enterprise applications.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 13, 2026</span>
-          <a class="btn-apply" href="https://www.tallo.com/job/azure-ai-solutions-architect-100-remote-6-months-contract-dexperts-inc-remote/" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Dexperts Inc. -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Dexperts Inc.</div>
+        <span class="badge badge-contract">Contract</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Remote AI Solutions Engineer — Platform Implementations</div>
-            <div class="card-company">Truelogic Software</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote</span>
-          <span class="badge badge-type">Full-time</span>
-        </div>
-        <div class="card-description">Support customer implementations and technical operations — configuring systems, resolving technical issues, and scaling technology implementations across AI platforms.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 13, 2026</span>
-          <a class="btn-apply" href="https://www.ziprecruiter.com/jobs/truelogic-software-f1452908/remote-ai-solutions-engineer-platform-implementations-01234567" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">Azure AI Solutions Architect — 6+ Month Contract</div>
+      <div class="card-description">Lead the design and implementation of enterprise-scale AI platforms using Microsoft Azure. Responsible for defining AI architecture, enabling production-grade Generative AI systems, and ensuring secure, scalable deployment across enterprise applications.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://www.tallo.com/job/azure-ai-solutions-architect-100-remote-6-months-contract-dexperts-inc-remote/" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 13</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">AI Solutions Architect</div>
-            <div class="card-company">Lyra Technology Group (for Hurricane Labs)</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote (CST/EST preferred)</span>
-          <span class="badge badge-type">Full-time</span>
-          <span class="badge badge-salary">$100k – $125k/yr</span>
-        </div>
-        <div class="card-description">Design and deploy advanced AI systems for Hurricane Labs, enhancing cybersecurity workflows by converting human decision-making into intelligent systems for threat analysis and operational efficiency.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 12, 2026</span>
-          <a class="btn-apply" href="https://www.jobleads.com/job/ai-solutions-architect-united-states-lyra-technology-group-123456789" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Truelogic Software -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Truelogic Software</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Pre-Sales Solution Architect (AI)</div>
-            <div class="card-company">F5</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote/Virtual (travel 50%)</span>
-          <span class="badge badge-type">Full-time</span>
-        </div>
-        <div class="card-description">Collaborate with an AI Sales role to identify opportunities and provide technical expertise across industries, with particular focus on AI technology and ecosystem. Provide business acumen across specific or multiple verticals.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 12, 2026</span>
-          <a class="btn-apply" href="https://careers.f5.com/job/seattle/pre-sales-solution-architect-ai/1234/56789" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">AI Solutions Engineer — Platform Implementations</div>
+      <div class="card-description">Support customer implementations and technical operations, configuring systems, resolving technical issues, and scaling AI technology deployments. A remote-first, full-time role for a builder who can own the technical side of customer success.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://www.ziprecruiter.com/jobs/truelogic-software-f1452908/remote-ai-solutions-engineer-platform-implementations-01234567" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 13</span>
       </div>
+    </div>
 
+    <!-- Card: Hurricane Labs / Lyra -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Hurricane Labs (via Lyra Technology Group)</div>
+        <span class="badge badge-remote">Remote</span>
+      </div>
+      <div class="card-title">AI Solutions Architect</div>
+      <div class="card-salary">$100,000 – $125,000 / year</div>
+      <div class="card-description">Design and deploy advanced AI systems that enhance cybersecurity workflows by converting human decision-making into intelligent automation. Focused on threat analysis and operational efficiency for a fast-moving security team.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://www.jobleads.com/job/ai-solutions-architect-united-states-lyra-technology-group-123456789" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 12</span>
+      </div>
+    </div>
+
+    <!-- Card: F5 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">F5</div>
+        <span class="badge badge-remote">Remote</span>
+      </div>
+      <div class="card-title">Pre-Sales Solution Architect (AI)</div>
+      <div class="card-description">Collaborate with the AI Sales team to identify opportunities and map F5 solutions to customer business needs. Bring technical expertise and business acumen to the AI technology ecosystem, across multiple industries.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://careers.f5.com/job/seattle/pre-sales-solution-architect-ai/1234/56789" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 12</span>
+      </div>
     </div>
   </div>
 
-  <!-- SECTION: AI PRODUCT MANAGEMENT -->
+  <!-- SECTION: AI Product Manager -->
   <div class="section">
-    <div class="section-heading">AI Product Management</div>
-    <div class="card-grid">
+    <div class="section-header">AI Product Manager</div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Senior Product Manager, AI CSM</div>
-            <div class="card-company">Toast</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote, United States</span>
-          <span class="badge badge-type">Remote</span>
-        </div>
-        <div class="card-description">Define and scale the AI-powered Customer Success Manager for every Toast customer. Build an intelligent, proactive AI system that helps restaurants onboard, adopt products, improve performance, and grow over time.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 13, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJZ1e9OgaUMwkVkhCFuKnDhmKRb4DLaP03TeC9FC32QFb_SNVch1m1agXhsvCCrf8DHPefm5PR-vLSrzry1yZ_NUvK1ghvk6n4V0MLfuJQ6EAUxEHsO2I2116ihQUpOUJ9nRX0tcoNRfhPI8HLeNWM21DWAcPP64T3LMrMy9SfJ9cE8mWQg3K2Vk_UGItw-w==" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Toast -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Toast</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Senior Product Manager – AI and ML Platform</div>
-            <div class="card-company">SurveyMonkey</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">United States – Remote</span>
-          <span class="badge badge-type">Remote</span>
-          <span class="badge badge-salary">$147.9k – $191.4k/yr</span>
-        </div>
-        <div class="card-description">Play a critical part in building the platform and product capabilities that enable AI-driven experiences. SurveyMonkey is a leading provider of online survey solutions accelerating toward AI-powered insights.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 18, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqc_R8Ol7NK_DAwwyMYVepP2ALdehUnNrfuGuzhhkuTcVxuC9wfyfFpcsBF-bh3VJPefm5PR-vLSrzry1yZ_NUvK1ghvk6n4V0MLfuJQ6EAUxEHsO2I2116ihQUpOUJ9nRX0tcoNRfhPI8HLeNWM21DWAcPP64T3LMrMy9SfJ9cE8mWQg3K2Vk_UGItw-w==" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">Senior Product Manager, AI CSM</div>
+      <div class="card-description">Define and scale an AI-powered Customer Success Manager for every Toast restaurant — a proactive intelligent system that drives onboarding, adoption, and long-term performance. High-scope, high-ownership role at the intersection of AI product and customer outcomes.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJZ1e9OgaUMwkVkhCFuKnDhmKRb4DLaP03TeC9FC32QFb_SNVch1m1agXhsvCCrf8DHPefm5PR-vLSrzry1yZ_NUvK1ghvk6n4V0MLfuJQ6EAUxEHsO2I2116ihQUpOUJ9nRX0tcoNRfhPI8HLeNWM21DWAcPP64T3LMrMy9SfJ9cE8mWQg3K2Vk_UGItw-w==" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 13</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Senior Product Manager, AI Products</div>
-            <div class="card-company">Boostlingo</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">United States</span>
-          <span class="badge badge-type">Remote</span>
-        </div>
-        <div class="card-description">Lead AI product strategy at a strategic inflection point as AI reshapes the language access and interpretation industry. Accelerate Boostlingo's path to becoming an AI-forward, enterprise-ready platform.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 17, 2026</span>
-          <a class="btn-apply" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFztxMrXezncBSl22bgZVGYHmNx-bCbqKC7-A8jN-Me6goYyycDKDu7VG9YqJKObwgbIyncqtP4qbS8XR1cjbXCvElC7yI_AX7NuT4lMpAKcTSacY1TfUBrrGbTU3nH5FISKRd9FgN5kPlFDPWtf1wJ3hVyuCxL" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: SurveyMonkey -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">SurveyMonkey</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
+      <div class="card-title">Senior Product Manager — AI &amp; ML Platform</div>
+      <div class="card-salary">$147,900 – $191,400 / year</div>
+      <div class="card-description">Build the platform capabilities that power SurveyMonkey's AI-driven experiences for millions of users. A critical infrastructure role for a senior PM who can think in systems and ship with velocity.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqc_R8Ol7NK_DAwwyMYVepP2ALdehUnNrfuGuzhhkuTcVxuC9wfyfFpcsBF-bh3VLrUGFvJRmH80G8arHehjLmKpCYA0h4iNV5Gj-oUTf2lLDoT-RlQmCvrm_vqaSxP7l0VpHwXaKkBi9bIYfw_VLzbAQSc_fN-w8jOWf7cPfdHzRa3FQwskeOQ6doO77NLweTg1E_BS8tfqV3DrpR7keyl4QO-NrN9o3Jju-RDGC43UJ-Qmc6JnXm" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 18</span>
+      </div>
+    </div>
 
+    <!-- Card: Boostlingo -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Boostlingo</div>
+        <span class="badge badge-remote">Remote</span>
+      </div>
+      <div class="card-title">Senior Product Manager, AI Products</div>
+      <div class="card-description">Boostlingo is at an AI-driven inflection point in the language access industry — this role owns the product roadmap as the company accelerates toward becoming an AI-forward enterprise platform. Strategic opportunity for a PM who wants to shape a category.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFztxMrXezncBSl22bgZVGYHmNx-bCbqKC7-A8jN-Me6goYyycDKDu7VG9YqJKObwgbIyncqtP4qbS8XR1cjbXCvElC7yI_AX7NuT4lMpAKcTSacY1TfUBrrGbTU3nH5FISKRd9FgN5kPlFDPWtf1wJ3hVyuCxL" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 17</span>
+      </div>
     </div>
   </div>
 
-  <!-- SECTION: FIELD/SOLUTIONS ENGINEERING -->
+  <!-- SECTION: Hidden Gems -->
   <div class="section">
-    <div class="section-heading">Field &amp; Solutions Engineering</div>
-    <div class="empty-state">No new listings today</div>
-  </div>
+    <div class="section-header">Hidden Gems</div>
 
-  <!-- SECTION: RTP SCAN -->
-  <div class="section">
-    <div class="section-heading">RTP Local Scan</div>
-    <div class="empty-state">No new listings today</div>
-  </div>
-
-  <!-- SECTION: BONUS PICKS -->
-  <div class="section">
-    <div class="section-heading">Bonus Picks</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Fractional CTO / AI Strategy Advisor</div>
-            <div class="card-company">AI Strategy Partners</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote (US)</span>
-          <span class="badge badge-type">Contract · Part-time</span>
-          <span class="badge badge-salary">$150 – $300/hr</span>
-        </div>
-        <div class="card-description">Guide startups and PE-backed firms on AI product direction and architectural decisions. Create reference architectures and ensure quality checks for complex AI systems and data pipelines.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 18, 2026</span>
-          <a class="btn-apply" href="http://www.aistrategypartners.com/careers/fractional-cto-ai-advisor" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: AI Strategy Partners -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">AI Strategy Partners</div>
+        <span class="badge badge-contract">Contract</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">Head of AI &amp; Immersive Experiences</div>
-            <div class="card-company">Veridian Media Labs</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote (US)</span>
-          <span class="badge badge-type">Full-time</span>
-          <span class="badge badge-salary">$220k – $280k</span>
-        </div>
-        <div class="card-description">Lead the strategic development and integration of AI into immersive content and interactive experiences. Drive innovation in AI-powered storytelling, virtual environments, and user engagement for media platforms.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 17, 2026</span>
-          <a class="btn-apply" href="http://www.veridianmedialabs.com/careers/head-ai-immersive-experiences" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">Fractional CTO / AI Strategy Advisor</div>
+      <div class="card-salary">$150 – $300 / hour</div>
+      <div class="card-description">Guide startups and PE-backed firms on AI product direction and architectural decisions, creating reference architectures and quality checks for complex AI systems and data pipelines. High-rate fractional play for an operator with real strategic credibility.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="http://www.aistrategypartners.com/careers/fractional-cto-ai-advisor" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 18</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">VP, AI Product &amp; Design Systems</div>
-            <div class="card-company">PropTech Innovations</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote (US)</span>
-          <span class="badge badge-type">Full-time</span>
-          <span class="badge badge-salary">$250k – $320k</span>
-        </div>
-        <div class="card-description">Oversee product strategy and design systems for AI-powered real estate solutions. Lead a team creating intuitive, scalable, user-centric AI products transforming the real estate industry.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 15, 2026</span>
-          <a class="btn-apply" href="http://www.proptechinnovations.com/careers/vp-ai-product-design-systems" target="_blank" rel="noopener">Apply →</a>
-        </div>
+    <!-- Card: Veridian Media Labs -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">Veridian Media Labs</div>
+        <span class="badge badge-remote">Remote</span>
       </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <div class="card-title">AI Transformation Lead, LegalTech Solutions</div>
-            <div class="card-company">LexAI Dynamics</div>
-          </div>
-        </div>
-        <div class="card-badges">
-          <span class="badge badge-location">Remote (US)</span>
-          <span class="badge badge-type">Full-time</span>
-          <span class="badge badge-salary">$200k – $260k</span>
-        </div>
-        <div class="card-description">Drive the adoption and strategic integration of AI across legal operations and client-facing solutions. Develop and execute a roadmap for AI-driven efficiency and innovation in legal services for a growing LegalTech firm.</div>
-        <div class="card-footer">
-          <span class="card-posted">Posted Mar 16, 2026</span>
-          <a class="btn-apply" href="http://www.lexaidynamics.com/careers/ai-transformation-lead" target="_blank" rel="noopener">Apply →</a>
-        </div>
+      <div class="card-title">Head of AI &amp; Immersive Experiences</div>
+      <div class="card-salary">$220,000 – $280,000</div>
+      <div class="card-description">Lead the strategic development and integration of AI into immersive content and interactive experiences for media platforms. Drive innovation in AI-powered storytelling, virtual environments, and user engagement — a UX-meets-AI leadership play.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="http://www.veridianmedialabs.com/careers/head-ai-immersive-experiences" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 17</span>
       </div>
+    </div>
 
+    <!-- Card: PropTech Innovations -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">PropTech Innovations</div>
+        <span class="badge badge-remote">Remote</span>
+      </div>
+      <div class="card-title">VP, AI Product &amp; Design Systems</div>
+      <div class="card-salary">$250,000 – $320,000</div>
+      <div class="card-description">Oversee product strategy and design systems for AI-powered solutions transforming real estate. Lead a team focused on intuitive, scalable, user-centric AI products — strong UX background will land well here.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="http://www.proptechinnovations.com/careers/vp-ai-product-design-systems" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 15</span>
+      </div>
+    </div>
+
+    <!-- Card: LexAI Dynamics -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-company">LexAI Dynamics</div>
+        <span class="badge badge-remote">Remote</span>
+      </div>
+      <div class="card-title">AI Transformation Lead, LegalTech Solutions</div>
+      <div class="card-salary">$200,000 – $260,000</div>
+      <div class="card-description">Drive AI adoption and strategic integration across legal operations and client-facing solutions for a growing LegalTech firm. Develop and execute a roadmap for AI-driven efficiency — a vertical bet on a space getting disrupted fast.</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="http://www.lexaidynamics.com/careers/ai-transformation-lead" target="_blank" rel="noopener">Apply →</a>
+        <span class="card-date">Mar 16</span>
+      </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    Delivered daily by <span>Pavano</span><br>
-    Wally Mostafa · wmostafa12@gmail.com
+    <span class="footer-brand">Job Intel by <a href="https://misterpavano.github.io/job-intel/">Pavano</a></span>
+    <span class="footer-meta">March 19, 2026</span>
   </div>
 
 </div>
