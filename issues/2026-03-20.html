@@ -10,514 +10,360 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #08080f;
-      --accent: #00d4aa;
-      --purple: #7c6af7;
-      --text: #e2e8f0;
-      --muted: #64748b;
-      --card-bg: #0f0f1a;
-      --card-border: #1e1e2e;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #0a0a0f;
+      color: #e2e8f0;
       font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding: 24px 16px 48px;
     }
 
     .wrapper {
-      max-width: 760px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
     }
 
-    /* ── Header ── */
+    /* HEADER */
     .header {
-      text-align: center;
-      padding: 48px 0 36px;
-      border-bottom: 1px solid var(--card-border);
-      margin-bottom: 28px;
+      padding: 40px 0 32px;
+      border-bottom: 1px solid #1e293b;
     }
-    .header-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
+
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
     }
-    .header h1 {
-      font-size: 2.8rem;
+
+    .brand {
+      font-size: 36px;
       font-weight: 800;
-      color: var(--accent);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-    .header-subtitle {
-      font-size: 1rem;
-      color: var(--text);
-      opacity: 0.75;
-      margin-bottom: 8px;
-    }
-    .header-date {
-      font-size: 0.85rem;
-      color: var(--muted);
+      color: #ffffff;
+      letter-spacing: -0.03em;
     }
 
-    /* ── Summary Bar ── */
-    .summary-bar {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 18px 24px;
-      margin-bottom: 36px;
-      align-items: center;
-    }
-    .summary-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .summary-item .num {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .summary-item .label {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .summary-divider {
-      width: 1px;
-      height: 28px;
-      background: var(--card-border);
-    }
-    .summary-loc {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .summary-loc::before {
-      content: '📍';
-      font-size: 0.9rem;
-    }
-
-    /* ── Section ── */
-    .section {
-      margin-bottom: 44px;
-    }
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .section-heading h2 {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    .section-heading-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--accent) 0%, transparent 100%);
-      opacity: 0.35;
-    }
-
-    /* ── Card ── */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin-bottom: 14px;
-      transition: border-color 0.2s;
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      background: #3b82f6;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 2px;
+      vertical-align: middle;
       position: relative;
+      top: -2px;
     }
-    .card:hover {
-      border-color: rgba(0, 212, 170, 0.3);
+
+    .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .accent-line {
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6 0%, transparent 100%);
+      margin-top: 20px;
+      border-radius: 1px;
+    }
+
+    /* INTRO */
+    .intro {
+      padding: 28px 0 8px;
+    }
+
+    .intro p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #94a3b8;
+    }
+
+    /* SECTION */
+    .section {
+      margin-top: 36px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    /* JOB CARD */
+    .job-card {
+      background: #111118;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .job-card:hover {
+      border-color: #2d3a5a;
     }
 
     .card-top {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
+      justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-    .card-title-block { flex: 1; min-width: 0; }
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .card-company {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .card-posted {
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-      padding-top: 3px;
+      margin-bottom: 6px;
     }
 
-    .card-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 12px;
+    .company {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      flex: 1;
     }
+
     .badge {
-      display: inline-block;
-      font-size: 0.73rem;
+      font-size: 11px;
       font-weight: 600;
       padding: 3px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.02em;
-    }
-    .badge-loc {
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      border: 1px solid var(--card-border);
-    }
-    .badge-type {
-      background: rgba(0, 212, 170, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(0, 212, 170, 0.2);
-    }
-    .badge-salary {
-      background: rgba(124, 106, 247, 0.15);
-      color: var(--purple);
-      border: 1px solid rgba(124, 106, 247, 0.25);
-    }
-    .badge-repeat {
-      background: rgba(100,116,139,0.15);
-      color: var(--muted);
-      border: 1px solid rgba(100,116,139,0.25);
+      border-radius: 99px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
+    .badge-remote   { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
+    .badge-hybrid   { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.25); }
+    .badge-onsite   { background: rgba(100,116,139,0.15); color: #94a3b8; border: 1px solid rgba(100,116,139,0.25); }
+    .badge-rtp      { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+    .badge-contract { background: rgba(168,85,247,0.15); color: #a855f7; border: 1px solid rgba(168,85,247,0.25); }
+
+    .job-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 4px;
+    }
+
+    .salary {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #64748b;
       margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     .card-footer {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 12px;
     }
+
     .apply-btn {
       display: inline-block;
-      font-size: 0.82rem;
+      background: #3b82f6;
+      color: #ffffff;
+      font-size: 13px;
       font-weight: 600;
-      color: var(--accent);
-      border: 1px solid rgba(0, 212, 170, 0.45);
-      border-radius: 8px;
-      padding: 7px 18px;
       text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: background 0.15s, color 0.15s;
+      padding: 8px 18px;
+      border-radius: 99px;
+      transition: background 0.2s;
     }
+
     .apply-btn:hover {
-      background: rgba(0, 212, 170, 0.1);
+      background: #2563eb;
     }
 
-    /* ── Empty State ── */
-    .empty-state {
-      background: var(--card-bg);
-      border: 1px dashed var(--card-border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.875rem;
+    .posted-date {
+      font-size: 11px;
+      color: #334155;
     }
 
-    /* ── Footer ── */
+    /* FOOTER */
     .footer {
-      border-top: 1px solid var(--card-border);
-      margin-top: 48px;
-      padding-top: 28px;
+      margin-top: 52px;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
       text-align: center;
     }
+
     .footer p {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-    .footer-brand {
-      color: var(--accent);
-      font-weight: 600;
+      font-size: 12px;
+      color: #334155;
+      line-height: 1.7;
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 520px) {
-      .header h1 { font-size: 2.1rem; }
-      .summary-bar { gap: 14px; }
-      .summary-divider { display: none; }
-      .summary-loc { margin-left: 0; width: 100%; }
-      .card-top { flex-direction: column; gap: 4px; }
-      .card-posted { align-self: flex-start; }
-      .wrapper { padding: 24px 16px 48px; }
+    .footer a {
+      color: #475569;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #3b82f6;
+    }
+
+    @media (max-width: 480px) {
+      .brand { font-size: 28px; }
+      .card-top { flex-direction: column; align-items: flex-start; }
+      .card-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="header">
-      <p class="header-eyebrow">Daily Briefing</p>
-      <h1>JOB INTEL</h1>
-      <p class="header-subtitle">AI opportunities for Wally Mostafa</p>
-      <p class="header-date">Friday, March 20, 2026</p>
+      <div>
+        <span class="brand">Job Intel<span class="brand-dot"></span></span>
+        <p class="subtitle">AI roles worth your time &mdash; Friday, March 20, 2026</p>
+      </div>
+      <div class="accent-line"></div>
     </header>
 
-    <!-- Summary Bar -->
-    <div class="summary-bar">
-      <div class="summary-item">
-        <span class="num">7</span>
-        <span class="label">total listings</span>
-      </div>
-      <div class="summary-divider"></div>
-      <div class="summary-item">
-        <span class="num">4</span>
-        <span class="label">active categories</span>
-      </div>
-      <div class="summary-divider"></div>
-      <div class="summary-item">
-        <span class="num">2</span>
-        <span class="label">Raleigh / NC</span>
-      </div>
-      <div class="summary-loc">Raleigh NC + Remote</div>
+    <!-- INTRO -->
+    <div class="intro">
+      <p>Healthcare AI and enterprise adoption are where the action is this week, with pharma-adjacent PM roles clustering in the Raleigh-Cary corridor. If you're carrying clinical AI credibility and cross-functional delivery experience, the market has a few real openings worth the conversation.</p>
     </div>
 
-    <!-- SECTION: Consulting -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>Consulting</h2>
-        <div class="section-heading-line"></div>
-      </div>
-      <div class="empty-state">No new listings today</div>
-    </section>
+    <!-- SECTION: Head of AI / VP of AI -->
+    <div class="section">
+      <div class="section-label">Head of AI / VP of AI</div>
 
-    <!-- SECTION: AI Leadership -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>AI Leadership</h2>
-        <div class="section-heading-line"></div>
-      </div>
-
-      <!-- Card -->
-      <div class="card">
+      <!-- Quantum World Technologies -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">AI Lead (Healthcare / Clinical / Lifesciences Domain)</div>
-            <div class="card-company">Quantum World Technologies Inc.</div>
-          </div>
-          <div class="card-posted">Mar 13, 2026</div>
+          <span class="company">Quantum World Technologies (Client)</span>
+          <span class="badge badge-remote">Remote</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Remote, USA</span>
-          <span class="badge badge-type">Remote</span>
-          <span class="badge badge-repeat">Seen before</span>
-        </div>
-        <p class="card-desc">Identify high-leverage use cases across DS operations and build prototypes and deliver MVPs using AWS / Databricks / Dataiku / OpenAI. Define the AI north star and a staged path from POCs to reusable capabilities to scaled delivery.</p>
+        <div class="job-title">AI Lead — Healthcare / Clinical / Life Sciences</div>
+        <div class="description">Identify high-leverage use cases across DS operations, build prototypes, and deliver MVPs using AWS, Databricks, Dataiku, and OpenAI. Define the AI north star and a staged path from POCs to reusable capabilities to scaled delivery.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://jobs.nvoids.com/job_details.jsp?id=3212357&uid=4e41cbcc0d404942bca695a2a67fc1bf" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://jobs.nvoids.com/job_details.jsp?id=3212357&uid=4e41cbcc0d404942bca695a2a67fc1bf" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 13</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION: Enterprise AI -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>Enterprise AI</h2>
-        <div class="section-heading-line"></div>
-      </div>
-      <div class="empty-state">No new listings today</div>
-    </section>
+    <!-- SECTION: AI Product Manager -->
+    <div class="section">
+      <div class="section-label">AI Product Manager</div>
 
-    <!-- SECTION: AI Product Management -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>AI Product Management</h2>
-        <div class="section-heading-line"></div>
-      </div>
-
-      <!-- Card: IQVIA -->
-      <div class="card">
+      <!-- EvenUp -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">Product Manager</div>
-            <div class="card-company">IQVIA</div>
-          </div>
-          <div class="card-posted">Mar 14, 2026</div>
+          <span class="company">EvenUp</span>
+          <span class="badge badge-remote">Remote</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Raleigh, NC</span>
-          <span class="badge badge-type">Onsite</span>
-          <span class="badge badge-salary">$87K–$218K / yr</span>
-        </div>
-        <p class="card-desc">Lead the design and optimization of data pipelines, ensuring scalability and performance in healthcare data solutions. Supports AI initiatives and collaborates with cross-functional teams at a global leader in healthcare data.</p>
+        <div class="job-title">Manager, Enterprise AI Adoption</div>
+        <div class="salary">$150,000 &ndash; $200,000 / year</div>
+        <div class="description">Drive adoption of EvenUp's AI platform within enterprise clients across personal injury law. Owns the strategy and execution for getting teams from evaluation to embedded use.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrbCyoku_YG3YJvUIYPu_XQYzFSPRPATiuGy7hcl35LDL4MLYBpxJ_E1DqFIrQD0ncXc_-pRxmxAv2F96PucIQ3Xq6babVH9Fl1qT_Z0BUOoaB0jo8eKuf6XIEvBYNIWz2UtAhOlcMCsv4" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFses5MQuKYjkNynNljTU2r-fgSCaArs6QWxqCJBY4dEJ0RG9lXS_pDijmR5lLvT7UIrGrg0wfY5aQHa1k1nNi1oAwItwhee4DSrZ9FCSESAtyLdy7LzuD-UbAtqw==" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 16</span>
         </div>
       </div>
 
-      <!-- Card: Hitachi -->
-      <div class="card">
+      <!-- Hitachi -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">AI Product Manager</div>
-            <div class="card-company">Hitachi</div>
-          </div>
-          <div class="card-posted">Mar 13, 2026</div>
+          <span class="company">Hitachi</span>
+          <span class="badge badge-rtp">RTP</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Raleigh, NC</span>
-          <span class="badge badge-type">Hybrid</span>
-        </div>
-        <p class="card-desc">Lead discovery, design, and delivery of Multi-Agent System PoCs to production. In-office or remote flexibility for a senior PM role at a global technology company.</p>
+        <div class="job-title">AI Product Manager</div>
+        <div class="description">Lead discovery, design, and delivery of Multi-Agent System PoCs through to production. Based in Raleigh with hybrid flexibility — right in your backyard and aligned to your agent-system background.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrbCyoku_YG3YJvUIYPu_XQYzFSPRPATiuGy7hcl35LDL4MLYBpxJ_E1DqFIrQD0ncXc_-pRxmxAv2F96PucIQ3Xq6babVH9Fl1qT_Z0BUOoaB0jo8eKuf6XIEvBYNIWz2UtAhOlcMCsv4" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrbCyoku_YG3YJvUIYPu_XQYzFSPRPATiuGy7hcl35LDL4MLYBpxJ_E1DqFIrQD0ncXc_-pRxmxAv2F96PucIQ3Xq6babVH9Fl1qT_Z0BUOoaB0jo8eKuf6XIEvBYNIWz2UtAhOlcMCsv4" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 13</span>
         </div>
       </div>
 
-      <!-- Card: OnLogic -->
-      <div class="card">
+      <!-- IQVIA -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">Product Manager, Edge AI Compute</div>
-            <div class="card-company">OnLogic</div>
-          </div>
-          <div class="card-posted">Mar 17, 2026</div>
+          <span class="company">IQVIA</span>
+          <span class="badge badge-rtp">RTP</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Cary, NC</span>
-          <span class="badge badge-type">Onsite</span>
-        </div>
-        <p class="card-desc">Set global strategy across diverse markets as a full-time member of the Product Management Team at the Cary, NC location. Solutions-oriented PM role for edge AI compute hardware products.</p>
+        <div class="job-title">Product Manager</div>
+        <div class="salary">$87,000 &ndash; $218,000 / year</div>
+        <div class="description">Lead design and optimization of healthcare data pipelines supporting AI initiatives in a pharma-adjacent org. Strong UX and cross-functional leadership background maps well to what IQVIA is asking for here.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0yHwsTlw5BG24wKuo5w3kDZK-KMj81mi87I3GW6pT1fnkOB6Mls53wX2yY4umXyw5QlkTLNwRJODvMkmboYZB1VLjH6Bl1IEg_5lQPpBf6kWEcuko71UkewkbEM2Pcd97_mNbfsUUGS8xTTHVSm6MNysb_AK9IfBmICC0wWAWc=" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrbCyoku_YG3YJvUIYPu_XQYzFSPRPATiuGy7hcl35LDL4MLYBpxJ_E1DqFIrQD0ncXc_-pRxmxAv2F96PucIQ3Xq6babVH9Fl1qT_Z0BUOoaB0jo8eKuf6XIEvBYNIWz2UtAhOlcMCsv4" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 14</span>
         </div>
       </div>
 
-      <!-- Card: EvenUp -->
-      <div class="card">
+      <!-- OnLogic -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">Manager, Enterprise AI Adoption</div>
-            <div class="card-company">EvenUp</div>
-          </div>
-          <div class="card-posted">Mar 16, 2026</div>
+          <span class="company">OnLogic</span>
+          <span class="badge badge-rtp">RTP</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Remote-US</span>
-          <span class="badge badge-type">Remote / Hybrid</span>
-          <span class="badge badge-salary">$150K–$200K / yr</span>
-        </div>
-        <p class="card-desc">Drive adoption of EvenUp's AI platform within enterprise clients. EvenUp is the leading AI platform for personal injury law — this role owns the customer success motion for large accounts.</p>
+        <div class="job-title">Product Manager, Edge AI Compute</div>
+        <div class="description">Set global strategy across diverse markets for edge AI hardware at the Cary, NC location. Solutions-oriented PM with a mandate to shape product direction in a technical, hardware-adjacent AI space.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFses5MQuKYjkNynNljTU2r-fgSCaArs6QWxqCJBY4dEJ0RG9lXS_pDijmR5lLvT7UIrGrg0wfY5aQHa1k1nNi1oAwItwhee4DSrZ9FCSESAtyLdy7LzuD-UbAtqw==" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0yHwsTlw5BG24wKuo5w3kDZK-KMj81mi87I3GW6pT1fnkOB6Mls53wX2yY4umXyw5QlkTLNwRJODvMkmboYZB1VLjH6Bl1IEg_5lQPpBf6kWEcuko71UkewkbEM2Pcd97_mNbfsUUGS8xTTHVSm6MNysb_AK9IfBmICC0wWAWc=" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 17</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION: FDE / Solutions -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>FDE / Solutions</h2>
-        <div class="section-heading-line"></div>
-      </div>
+    <!-- SECTION: Field Delivery / Solutions Engineer -->
+    <div class="section">
+      <div class="section-label">Field Delivery / Solutions Engineer</div>
 
-      <!-- Card: Human Agency -->
-      <div class="card">
+      <!-- Human Agency -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">AI Implementation Specialist (Construction Technology)</div>
-            <div class="card-company">Human Agency</div>
-          </div>
-          <div class="card-posted">Mar 16, 2026</div>
+          <span class="company">Human Agency</span>
+          <span class="badge badge-remote">Remote</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Remote / Phoenix, AZ</span>
-          <span class="badge badge-type">Full-time</span>
-          <span class="badge badge-salary">$80K–$120K</span>
-          <span class="badge badge-repeat">Seen before</span>
-        </div>
-        <p class="card-desc">Conduct structured job shadows on active construction sites to map workflows, capture expert knowledge, and synthesize observations for product development. Enable field teams to leverage AI tools and feed institutional intelligence into the product roadmap.</p>
+        <div class="job-title">AI Implementation Specialist — Construction Technology</div>
+        <div class="salary">$80,000 &ndash; $120,000</div>
+        <div class="description">Conduct structured job shadows on active construction sites to map workflows, capture expert knowledge, and synthesize findings for product development. Enable field teams to leverage AI tools and inform Human Agency's product roadmap with real operational intelligence.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://www.theladders.com/job/ai-implementation-specialist-construction-technology-phoenix-human-agency-phoenix-az_47249117" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://www.theladders.com/job/ai-implementation-specialist-construction-technology-phoenix-human-agency-phoenix-az_47249117" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 16</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION: RTP Scan -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>RTP Scan</h2>
-        <div class="section-heading-line"></div>
-      </div>
-      <div class="empty-state">No new listings today</div>
-    </section>
+    <!-- SECTION: Hidden Gems -->
+    <div class="section">
+      <div class="section-label">Hidden Gems</div>
 
-    <!-- SECTION: Bonus -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>Bonus Opportunity</h2>
-        <div class="section-heading-line"></div>
-      </div>
-
-      <!-- Card: Shae Group -->
-      <div class="card">
+      <!-- Shae Group -->
+      <div class="job-card">
         <div class="card-top">
-          <div class="card-title-block">
-            <div class="card-title">Fractional CTO / AI Strategy Council</div>
-            <div class="card-company">Shae Group</div>
-          </div>
-          <div class="card-posted">Mar 18, 2026</div>
+          <span class="company">Shae Group</span>
+          <span class="badge badge-contract">Contract</span>
         </div>
-        <div class="card-badges">
-          <span class="badge badge-loc">Remote (US)</span>
-          <span class="badge badge-type">Contractor</span>
-          <span class="badge badge-salary">$300–$550 / hr</span>
-          <span class="badge badge-repeat">Seen before</span>
-        </div>
-        <p class="card-desc">Advise high-impact AI product decisions and guide AI strategy for a global AI-first technology group. Provide concise, high-leverage guidance on AI deployment at scale, including in regulated health markets.</p>
+        <div class="job-title">Fractional CTO / AI Strategy Council</div>
+        <div class="salary">$300 &ndash; $550 / hr</div>
+        <div class="description">Advise on high-impact AI product decisions and guide AI strategy for a global AI-first technology group, including regulated health deployments. High leverage, minimal overhead — exactly the consulting angle OBA is building toward.</div>
         <div class="card-footer">
-          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQl-1YzVBkeChpYch1e18xnzn7pMd4FF9M6HAaogtLuqOGvgGnWMMBDMPirqb-9yKSLWJxGKDR870STjxy__XblgRWgZRMy9jx3C_DNfm1UTyuWdpHcWdL_EwyMEcS0-izB4imfOkDijmlg2VBYbQ9AAKE6rSthbQh-iN8znBS8JhQq_1jyJi9UO_wYyJxPEq8sfoLffEifcYBxTEGEJV9U5qsJNHiJu0E6NmJDtjG__1pLTITg2BIM59CvVfzzmD3vkYAjz0" target="_blank" rel="noopener">Apply →</a>
+          <a class="apply-btn" href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQl-1YzVBkeChpYch1e18xnzn7pMd4FF9M6HAaogtLuqOGvgGnWMMBDMPirqb-9yKSLWJxGKDR870STjxy__XblgRWgZRMy9jx3C_DNfm1UTyuWdpHcWdL_EwyMEcS0-izB4imfOkDijmlg2VBYbQ9AAKE6rSthbQh-iN8znBS8JhQq_1jyJi9UO_wYyJxPEq8sfoLffEifcYBxTEGEJV9U5qsJNHiJu0E6NmJDtjG__1pLTITg2BIM59CvVfzzmD3vkYAjz0" target="_blank">Apply &rarr;</a>
+          <span class="posted-date">Posted Mar 18</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
       <p>
-        <span class="footer-brand">Delivered daily by Pavano.</span><br />
-        Wally Mostafa · wmostafa12@gmail.com
+        <strong style="color:#475569;">Job Intel by Pavano</strong><br />
+        March 20, 2026<br />
+        <a href="https://misterpavano.github.io/job-intel/" target="_blank">misterpavano.github.io/job-intel</a>
       </p>
     </footer>
 
